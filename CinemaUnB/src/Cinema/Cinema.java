@@ -301,8 +301,12 @@ public class Cinema {
 				}
 
 				lugar = fileiranome + lugar;
-
-				ingressos.criar(sid, lugar, "Disponivel");
+				if(p == sc.getPoltronas()/2) {
+					ingressos.criar(sid, lugar, "Disponivel", "Inteira", 20.00);
+				}else {
+					ingressos.criar(sid, lugar, "Disponivel", "Meia", 40.00);
+				}
+				
 
 			}
 

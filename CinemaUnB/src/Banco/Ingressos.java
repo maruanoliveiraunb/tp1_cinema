@@ -18,10 +18,10 @@ public class Ingressos {
 		BC = b;
 	}
 
-	public void criar(int sessaoid, String lugar, String status)
+	public void criar(int sessaoid, String lugar, String status, String tipo, double valor)
 			throws Exception {
 
-		String sql = "INSERT INTO ingressos(sessaoid,lugar,status) VALUES(?,?,?)";
+		String sql = "INSERT INTO ingressos(sessaoid,lugar,status, tipo, valor) VALUES(?,?,?, ?, ?)";
 
 		try {
 			PreparedStatement stmt = BC.conecta.prepareStatement(sql);
@@ -29,7 +29,9 @@ public class Ingressos {
 			stmt.setInt(1, sessaoid);
 			stmt.setString(2, lugar);
 			stmt.setString(3, status);
-
+			stmt.setString(4, tipo);
+			stmt.setDouble(5, valor);
+			
 			stmt.execute(); // executa comando
 			stmt.close();
 
